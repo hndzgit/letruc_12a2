@@ -1,0 +1,207 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: 
+    linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') center/cover no-repeat fixed;
+  padding-bottom: 50px;
+}
+
+
+
+/* Header */
+header {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+              url(https://nld.mediacdn.vn/thumb_w/698/291774122806476800/2021/12/20/7-cai-nhat-cua-phong-nha-ke-bang-1639936654793597781412.jpg) center/cover no-repeat;
+  padding: 12px 30px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: white;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white !important;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+nav a:hover {
+  color: #aad4ff !important;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background: #aad4ff;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Sections */
+main {
+  padding: 40px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 60px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #1e3a5f;
+  margin-bottom: 15px;
+}
+
+p, li {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8); /* nền trắng nhẹ */
+  color: #333;
+  font-size: 20px; /* Chỉnh kích thước chữ lớn hơn */
+  font-weight: bold; /* Chữ đậm hơn */
+  margin-top: 50px;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Thêm hiệu ứng bóng cho chữ */
+  
+  position: relative;
+  animation: fadeIn 2s ease-in-out; /* Thêm hiệu ứng fade-in */
+}
+
+footer::before {
+  content: url('logo.png'); /* Thêm logo ở cạnh */
+  position: absolute;
+  left: 20px; /* Điều chỉnh vị trí logo */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* Kích thước logo */
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    margin: 5px 10px;
+  }
+
+  main {
+    padding: 20px;
+  }
+}
